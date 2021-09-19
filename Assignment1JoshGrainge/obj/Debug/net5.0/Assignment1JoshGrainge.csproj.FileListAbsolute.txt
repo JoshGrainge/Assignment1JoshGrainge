@@ -1,0 +1,16 @@
+D:\CPIN Folder\OOP 2\Assignment1JoshGrainge\Assignment1JoshGrainge\obj\Debug\net5.0\Assignment1JoshGrainge.csprojAssemblyReference.cache
+D:\CPIN Folder\OOP 2\Assignment1JoshGrainge\Assignment1JoshGrainge\obj\Debug\net5.0\Assignment1JoshGrainge.GeneratedMSBuildEditorConfig.editorconfig
+D:\CPIN Folder\OOP 2\Assignment1JoshGrainge\Assignment1JoshGrainge\obj\Debug\net5.0\Assignment1JoshGrainge.AssemblyInfoInputs.cache
+D:\CPIN Folder\OOP 2\Assignment1JoshGrainge\Assignment1JoshGrainge\obj\Debug\net5.0\Assignment1JoshGrainge.AssemblyInfo.cs
+D:\CPIN Folder\OOP 2\Assignment1JoshGrainge\Assignment1JoshGrainge\obj\Debug\net5.0\Assignment1JoshGrainge.csproj.CoreCompileInputs.cache
+D:\CPIN Folder\OOP 2\Assignment1JoshGrainge\Assignment1JoshGrainge\bin\Debug\net5.0\Assignment1JoshGrainge.exe
+D:\CPIN Folder\OOP 2\Assignment1JoshGrainge\Assignment1JoshGrainge\bin\Debug\net5.0\Assignment1JoshGrainge.deps.json
+D:\CPIN Folder\OOP 2\Assignment1JoshGrainge\Assignment1JoshGrainge\bin\Debug\net5.0\Assignment1JoshGrainge.runtimeconfig.json
+D:\CPIN Folder\OOP 2\Assignment1JoshGrainge\Assignment1JoshGrainge\bin\Debug\net5.0\Assignment1JoshGrainge.runtimeconfig.dev.json
+D:\CPIN Folder\OOP 2\Assignment1JoshGrainge\Assignment1JoshGrainge\bin\Debug\net5.0\Assignment1JoshGrainge.dll
+D:\CPIN Folder\OOP 2\Assignment1JoshGrainge\Assignment1JoshGrainge\bin\Debug\net5.0\ref\Assignment1JoshGrainge.dll
+D:\CPIN Folder\OOP 2\Assignment1JoshGrainge\Assignment1JoshGrainge\bin\Debug\net5.0\Assignment1JoshGrainge.pdb
+D:\CPIN Folder\OOP 2\Assignment1JoshGrainge\Assignment1JoshGrainge\obj\Debug\net5.0\Assignment1JoshGrainge.dll
+D:\CPIN Folder\OOP 2\Assignment1JoshGrainge\Assignment1JoshGrainge\obj\Debug\net5.0\ref\Assignment1JoshGrainge.dll
+D:\CPIN Folder\OOP 2\Assignment1JoshGrainge\Assignment1JoshGrainge\obj\Debug\net5.0\Assignment1JoshGrainge.pdb
+D:\CPIN Folder\OOP 2\Assignment1JoshGrainge\Assignment1JoshGrainge\obj\Debug\net5.0\Assignment1JoshGrainge.genruntimeconfig.cache
