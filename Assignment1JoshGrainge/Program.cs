@@ -5,8 +5,12 @@ namespace A1
 {
 	public class Program
 	{
+		static Random random = new Random(1);
 		static void Main(string[] args)
 		{
+
+// Toggle card picker and particle mover logic
+#if (false)
 			Console.WriteLine("Enter the number of cards to pick: ");
 			string line = Console.ReadLine();
 			if (int.TryParse(line, out int numCards))
@@ -20,8 +24,39 @@ namespace A1
 			{
 				Console.WriteLine("Please enter a valid number.");
 			}
-		}
-	}
+
+#else
+			
+            ParticleMovement particleMover = new ParticleMovement(GetMovementRange());
+            while (true)
+            {
+                Console.Write("0 for base movement only\n1 if a magnetic field is present\n" +
+                              "2 if a gravitational field is present\n3 for both fields\n");
+                char key = Console.ReadKey().KeyChar;
+                if (key != '0' && key != '1' && key != '2' && key != '3') return;
+
+				// Set magnetic field value
+				particleMover.MagneticField = (key == '1' || key == '3') ? 1.75M : 1M;
+
+				// Set gravitational field value 
+				particleMover.GravitationalField = (key == '2' || key == '3');
+
+                Console.WriteLine($"\nParticle with a movement range of {particleMover.MovementRange} units" +
+                                  $" moved a total distance of {particleMover.DistanceMoved} units.\n");
+            }
+#endif
+
+        }
+
+        /// <summary>
+        /// Get random range between 1-6 and returns the value as an integer
+        /// </summary>
+        /// <returns></returns>
+        public static int GetMovementRange()
+        {
+            return random.Next(1, 7) + random.Next(1, 7) + random.Next(1, 7);
+        }
+    }
 
 	public static class SubsequenceFinder
 	{
@@ -68,11 +103,13 @@ namespace A1
 
 			return cards;
 		}
-		/// <summary>
-		/// Chooses a random value for a card (Ace, 2, 3, ... , Queen, King)
-		/// </summary>
-		/// <returns>A string that represents the value of a card</returns>
-		private static string RandomValue()
+        /// <summary>
+        /// Chooses a random value for a card (Ace, 2, 3, ... , Queen, King)
+        /// </summary>
+        /// <returns>A string that represents the value of a card</returns>
+        public enum Cards { Ace = 1, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Jack, Queen, King};
+
+        private static string RandomValue()
 		{
             // Get random face value for card in range of card values
             int faceValueMin = 1;
@@ -80,20 +117,24 @@ namespace A1
 			int cardValue = random.Next(faceValueMin, faceValueMax);
 
 			// Return card name when the card has unique keyword associated with value
-			switch (cardValue)
-			{
-				case 1:
-                    return "Ace";
-				case 11:
-					return "Jack";
-				case 12:
-					return "Queen";
-				case 13:
-					return "King";
-			}
+			Cards c = (Cards)cardValue;
 
-			// When value should be kept numerical just return number value as string
-			return cardValue.ToString();
+            switch (c)
+			{
+				// Switch OR statement for all unique card names
+				case Cards.Ace:
+				case Cards.Jack:
+				case Cards.Queen:
+				case Cards.King:
+                    return c.ToString();
+
+				// When there isnt a unique card name just return the integer value
+
+				// Would usually return the cardValue here but wanted to use an enum for fun and to learn how to return the
+				// integer value of the current enum
+				default:
+                    return ((int)c).ToString();
+			}
 		}
 
 		/// <summary>
@@ -123,4 +164,65 @@ namespace A1
             }
 		}
 	}
+
+    public class ParticleMovement
+    {
+        public const int BASE_MOVEMENT = 3;
+        public const int GRAVITY_MOVEMENT = 2;
+
+		private int movementRange;
+        public int MovementRange
+		{
+			get { return movementRange; }
+			set
+			{ 
+				movementRange = value;
+				CalculateDistance();	
+			}
+		}
+
+		private bool gravitationalField;
+		public bool GravitationalField
+        {
+			get { return gravitationalField; }
+			set 
+			{
+				gravitationalField = value;
+				CalculateDistance();
+			}
+        }
+
+		private decimal magneticField;
+		public decimal MagneticField
+        {
+			get { return magneticField; }
+            set {
+					magneticField = value;
+					CalculateDistance();
+				}
+        }
+
+        private int distance;
+        public int Distance { get => distance; set => distance = value; }
+
+        public int DistanceMoved;
+
+		public ParticleMovement(int _movementRange)
+        {
+			MovementRange = _movementRange;
+        }
+
+		/// <summary>
+		/// Calculate distance particle has moved based on base movement speed, the movement range, current magnetic field, and current gravitational field
+		/// </summary>
+        private void CalculateDistance()
+        {
+			DistanceMoved = (int)(MovementRange * MagneticField) + BASE_MOVEMENT;
+
+			// Add gravity movement when gravity field is present
+			if (GravitationalField)
+				DistanceMoved += GRAVITY_MOVEMENT;
+        }
+		
+    }
 }

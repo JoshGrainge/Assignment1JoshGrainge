@@ -7,7 +7,6 @@ namespace A1UnitTests
     [TestClass]
     public class SubsequenceFinderTester
     {
-
         [TestMethod]
         public void InvalidSubsequence()
         {
@@ -24,8 +23,8 @@ namespace A1UnitTests
         public void ValidSubsequence()
         {
             // Creates list of sequence and valid subsequence
-            List<int> seq = new List<int>() { 1,2,3,4,5};
-            List<int> subSeq = new List<int>() { 1, 2};
+            List<int> seq = new List<int>() { 1,2,3};
+            List<int> subSeq = new List<int>() { 3,1};
 
             // Tests that valid subsequences returns true
             bool isValidResult = SubsequenceFinder.IsValidSubsequeuce(seq, subSeq);
